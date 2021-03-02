@@ -1,13 +1,9 @@
+import { getListGeneration } from '../constant/ApiConstant';
 import axiosClient from './axiosClient';
 
 const productApi = {
-    getAll: () => {
-        const url = 'api/group';
-        return axiosClient.get(url);
-    },
-
-    get: (id: any) => {
-        const url = `/products/${id}`;
+    getListAll: () => {
+        const url = getListGeneration;
         return axiosClient.get(url);
     },
 };

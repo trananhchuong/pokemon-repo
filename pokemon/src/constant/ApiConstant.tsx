@@ -1,7 +1,10 @@
-//todo api
-export const checkLoginApi = 'api/user/authenticate';
-export const logoutApi = 'api/user/logout';
-export const getListGroup = 'api/group';
+const url = 'https://pokeapi.co/api/v2/';
+
+
+// https://pokeapi.co/api/v2/version/?limit=10000
+
+export const getListGeneration = `${url}generation`;
+export const getListVersions = `${url}version`;
 
 
 

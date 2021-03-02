@@ -1,11 +1,9 @@
 import { combineReducers } from 'redux';
-import hobbyReducer from './hobbyReducer';
-import authenReducer from './authenReducer';
+import dataPokemonReducer from './dataPokemonReducer';
 
 
 const rootReducer = combineReducers({
-    hobby: hobbyReducer,
-    authen: authenReducer,
+    dataPokemon: dataPokemonReducer,
 });
 
 export default rootReducer;
