@@ -5,9 +5,11 @@ import { HashRouter as Router, Switch } from 'react-router-dom';
 import LayoutApp from './components/layouts/LayoutApp';
 import store from './store';
 
+import './stylesGlobal.scss';
+
 function App() {
   return (
-    <div className="barker-app">
+    <div className="pokemon-app">
       <Provider store={store}>
         <Router>
           <Switch>
