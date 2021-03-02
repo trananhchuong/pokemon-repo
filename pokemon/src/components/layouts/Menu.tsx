@@ -1,8 +1,6 @@
 import {
     DesktopOutlined,
     PieChartOutlined,
-
-
     UserOutlined
 } from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
@@ -17,7 +15,7 @@ import { RootState } from '../../reducers';
 import AppUtil from '../../Utils/AppUtil';
 import Loading from '../loading/Loading';
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Sider } = Layout;
 const { SubMenu } = Menu;
 
 function MenuLayout() {
@@ -66,7 +64,9 @@ function MenuLayout() {
 
     if (checkLoadData) {
         getDataMenu();
-        return <Loading />;
+        return <div style={{ height: '100vh' }}>
+            <Loading />
+        </div>;
     }
 
     return (
@@ -82,12 +82,12 @@ function MenuLayout() {
                 <Menu.Item key="Locations" icon={<PieChartOutlined />}>
                     <Link to="/Locations">
                         Locations
-                        </Link>
+                    </Link>
                 </Menu.Item>
                 <Menu.Item key="Items" icon={<DesktopOutlined />}>
                     <Link to="/items">
                         Items
-                        </Link>
+                    </Link>
                 </Menu.Item>
             </Menu>
         </Sider>

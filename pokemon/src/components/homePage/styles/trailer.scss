@@ -1,0 +1,11 @@
+.trailer-box {
+    .carousel-root {
+        .control-dots {
+            li.dot {
+                &::after {
+                    display: none;
+                }
+            }
+        }
+    }
+}
