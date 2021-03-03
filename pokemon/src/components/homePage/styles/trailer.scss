@@ -1,11 +1,8 @@
 .trailer-box {
-    .carousel-root {
-        .control-dots {
-            li.dot {
-                &::after {
-                    display: none;
-                }
-            }
+    .carousel-container {
+        .carousel-item-padding-40-px {
+            padding: 0 5px;
+            background: #fff;
         }
     }
 }

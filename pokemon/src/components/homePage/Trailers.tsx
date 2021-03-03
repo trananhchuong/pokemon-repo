@@ -1,6 +1,8 @@
 import React from 'react';
-import { Carousel } from 'react-responsive-carousel';
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
+
 import ReactPlayer from 'react-player';
 
 import _ from 'lodash';
@@ -12,8 +14,27 @@ const { Title } = Typography;
 function Trailers(props: any) {
 
     const YoutubeSlide = ({ url, isSelected }: { url: string; isSelected?: boolean }) => (
-        <ReactPlayer width="100%" url={url} playing={isSelected} />
+        <ReactPlayer url={url} playing={isSelected} />
     );
+
+    const responsive = {
+        desktop: {
+            breakpoint: { max: 3000, min: 1024 },
+            items: 3,
+            slidesToSlide: 3 // optional, default to 1.
+        },
+        tablet: {
+            breakpoint: { max: 1024, min: 464 },
+            items: 2,
+            slidesToSlide: 2 // optional, default to 1.
+        },
+        mobile: {
+            breakpoint: { max: 464, min: 0 },
+            items: 1,
+            slidesToSlide: 1 // optional, default to 1.
+        }
+    };
+
 
     const renderCarousel = () => {
         const customRenderItem = (item, props) => <item.type {...item.props} {...props} />;
@@ -46,10 +67,22 @@ function Trailers(props: any) {
         ];
 
         return (
-            <Carousel renderItem={customRenderItem} >
+            <Carousel
+                swipeable={false}
+                draggable={false}
+                showDots={true}
+                responsive={responsive}
+                infinite={true}
+                // autoPlay={true}
+                transitionDuration={1500}
+                containerClass="carousel-container"
+                removeArrowOnDeviceType={["tablet", "mobile"]}
+                dotListClass="custom-dot-list-style"
+                itemClass="carousel-item-padding-40-px"
+            >
                 {
-                    _.map(youtubeArr, (item) => {
-                        return <YoutubeSlide key="youtube-2" url={validateYouTubeUrl(item) || ""} />
+                    _.map(youtubeArr, (item, key) => {
+                        return <YoutubeSlide key={key} url={validateYouTubeUrl(item) || ""} />;
                     })
                 }
             </Carousel>
