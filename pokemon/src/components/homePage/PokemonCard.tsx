@@ -3,10 +3,7 @@ import { Card } from 'antd';
 const { Meta } = Card;
 
 function PokemonCard(props: any) {
-
     const { name, id } = props.pokemonData;
-    console.log("🚀 ~ file: PokemonCard.tsx ~ line 8 ~ PokemonCard ~ props", props)
-
     return (
         <div className="pokemon-card">
             <Card

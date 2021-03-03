@@ -1,0 +1,72 @@
+.pokemon-detail {
+    .pokemon-ava {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 237px;
+            height: 237px;
+            object-fit: cover;
+        }
+    }
+
+    .pokemon-charizard {
+        overflow: hidden;
+        padding-right: 40px;
+    }
+
+    .profile {
+        .profile-title {
+            font-size: 22px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .profile-content {
+            .ant-col-12 {
+                padding: 0 10px;
+            }
+
+            .pokemon-parameter {
+                display: flex;
+                font-size: 14px;
+
+                .title {
+                    min-width: 100px;
+                }
+                .result {
+                    flex: 1;
+
+                    .progress {
+                        display: flex;
+                        height: 1rem;
+                        overflow: hidden;
+                        font-size: 0.75rem;
+                        background-color: #e9ecef;
+                        border-radius: 0.25rem;
+                        margin-top: 10px;
+
+                        .progress-bar {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            color: #fff;
+                            text-align: center;
+                            white-space: nowrap;
+                            background-color: #007bff;
+                            -webkit-transition: width 0.6s ease;
+                            transition: width 0.6s ease;
+                        }
+                    }
+                }
+            }
+        }
+
+        .card-footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+    }
+}
