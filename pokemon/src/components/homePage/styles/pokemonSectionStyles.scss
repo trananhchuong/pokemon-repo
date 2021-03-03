@@ -1,4 +1,11 @@
 .pokemon-section-box {
+    .btn-box {
+        margin-bottom: 15px;
+        margin-top: -10px;
+        display: flex;
+        justify-content: flex-end;
+    }
+
     .pokemon-card {
         display: flex;
         justify-content: center;

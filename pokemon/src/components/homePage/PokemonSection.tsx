@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Row, Col, Divider, Typography } from 'antd';
+import { Row, Col, Button, Typography } from 'antd';
 import _ from 'lodash';
 import PokemonCard from './PokemonCard';
 import './styles/pokemonSectionStyles.scss';
@@ -33,7 +33,7 @@ function PokemonSection(props: any) {
         const onDetailClick = (item: any, id: any) => {
             try {
                 modalRef.current.setDataChildren(
-                    <PokemonDetail dataPokemon={{ ...item, id }} /> 
+                    <PokemonDetail dataPokemon={{ ...item, id }} />
                 );
                 setModalVisible(true);
             } catch (error) {
@@ -66,6 +66,16 @@ function PokemonSection(props: any) {
         </>
     }
 
+
+
+    const renderButtonSeeMore = () => {
+        return (
+            <div className="btn-box">
+                <Button type="primary">See More</Button>
+            </div>
+        );
+    };
+
     const renderModal = () => {
         return (
             <ModalComponent
@@ -77,6 +87,8 @@ function PokemonSection(props: any) {
     return (
         <div className="pokemon-section-box">
             <Title level={3}>Pokemon Section</Title>
+
+            {renderButtonSeeMore()}
             {renderContent()}
             {renderModal()}
         </div>

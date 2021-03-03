@@ -1,7 +1,8 @@
 import {
-    DesktopOutlined,
-    PieChartOutlined,
-    UserOutlined
+    AliwangwangOutlined, CompassOutlined,
+
+
+    InfoOutlined, UserOutlined
 } from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
 import _ from 'lodash';
@@ -70,21 +71,21 @@ function MenuLayout() {
     }
 
     return (
-        <Sider collapsed>
+        <Sider collapsible={true}>
             <div className="logo" />
             <Menu theme="dark" defaultSelectedKeys={['Games']} mode="inline">
-                <SubMenu key="Games" icon={<UserOutlined />} title="Games">
+                <SubMenu key="Games" icon={<AliwangwangOutlined />} title="Games">
                     {renderChildrenMenu(gameVersion)}
                 </SubMenu>
                 <SubMenu key="Generations" icon={<UserOutlined />} title="Generations">
                     {renderChildrenMenu(generations)}
                 </SubMenu>
-                <Menu.Item key="Locations" icon={<PieChartOutlined />}>
+                <Menu.Item key="Locations" icon={<CompassOutlined /> }>
                     <Link to="/Locations">
                         Locations
                     </Link>
                 </Menu.Item>
-                <Menu.Item key="Items" icon={<DesktopOutlined />}>
+                <Menu.Item key="Items" icon={<InfoOutlined />}>
                     <Link to="/items">
                         Items
                     </Link>
