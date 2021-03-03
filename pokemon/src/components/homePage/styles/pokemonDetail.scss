@@ -1,4 +1,41 @@
 .pokemon-detail {
+    .progress {
+        display: flex;
+        height: 1rem;
+        overflow: hidden;
+        font-size: 0.75rem;
+        background-color: #e9ecef;
+        border-radius: 0.25rem;
+        margin-top: 10px;
+
+        .progress-bar {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+            white-space: nowrap;
+            background-color: #007bff;
+            -webkit-transition: width 0.6s ease;
+            transition: width 0.6s ease;
+        }
+    }
+
+    .badge-box {
+        display: flex;
+        justify-content: flex-end;
+
+        .badge-pill{
+            padding: 3px;
+            border-radius: 5px;
+        }
+
+        .badge-pill.mr-1{
+            margin-right: 10px;
+        }
+
+    }
+
     .pokemon-ava {
         display: flex;
         justify-content: center;
@@ -38,28 +75,6 @@
                 }
                 .result {
                     flex: 1;
-
-                    .progress {
-                        display: flex;
-                        height: 1rem;
-                        overflow: hidden;
-                        font-size: 0.75rem;
-                        background-color: #e9ecef;
-                        border-radius: 0.25rem;
-                        margin-top: 10px;
-
-                        .progress-bar {
-                            display: flex;
-                            flex-direction: column;
-                            justify-content: center;
-                            color: #fff;
-                            text-align: center;
-                            white-space: nowrap;
-                            background-color: #007bff;
-                            -webkit-transition: width 0.6s ease;
-                            transition: width 0.6s ease;
-                        }
-                    }
                 }
             }
         }

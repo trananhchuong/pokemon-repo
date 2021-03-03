@@ -216,6 +216,25 @@ function PokemonDetail(props: any) {
 
     return (
         <div className="pokemon-detail">
+            <div className="badge-box">
+                {state.dataDetail.types.map(type => (
+                    <span
+                        key={type}
+                        className="badge badge-pill mr-1"
+                        style={{
+                            backgroundColor: `#${TYPE_COLORS[type]}`,
+                            color: 'white'
+                        }}
+                    >
+                        {type
+                            .toLowerCase()
+                            .split(' ')
+                            .map(s => s.charAt(0).toUpperCase() + s.substring(1))
+                            .join(' ')}
+                    </span>
+                ))}
+            </div>
+
             <Row>
                 <Col span={8} className="pokemon-ava">
                     <img
@@ -479,8 +498,6 @@ function PokemonDetail(props: any) {
                     </a>
                 </div>
             </Card>
-
-
         </div>
     );
 }
