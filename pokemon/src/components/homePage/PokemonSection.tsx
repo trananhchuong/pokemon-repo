@@ -11,14 +11,30 @@ function PokemonSection(props: any) {
 
     const renderContent = () => {
 
+        const getIdFromUrl = (url: string) => {
+            try {
+                if (!url)
+                    return "";
+
+                const key = "pokemon";
+                const indexOfPokemon = url.indexOf(key);
+                const subStringPokemon = url.substring(indexOfPokemon, url.length - 1);
+
+                const result = subStringPokemon.replace(key + "/", "");
+                return result;
+            } catch (error) {
+                console.log("🚀 ~ file: PokemonSection.tsx ~ line 17 ~ getIdFromUrl ~ error", error)
+            }
+        }
+
         return <>
             <Row>
                 {
-                    _.map(pokemonList, (item) => {
-                        console.log("🚀 ~ file: PokemonSection.tsx ~ line 18 ~ _.map ~ item", item)
-
-                        return <Col className="row pokemon-card" sm={16} lg={6} >
-                            <PokemonCard pokemonData={item} />
+                    _.map(pokemonList, (item, key) => {
+                        const id = getIdFromUrl(item.url);
+                        return <Col className="row pokemon-card" sm={18} lg={6} key={id || key}>
+                            <PokemonCard pokemonData={{ ...item, id }}
+                            />
                         </Col>;
                     })
                 }

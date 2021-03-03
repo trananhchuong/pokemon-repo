@@ -37,8 +37,6 @@ function Trailers(props: any) {
 
 
     const renderCarousel = () => {
-        const customRenderItem = (item, props) => <item.type {...item.props} {...props} />;
-
         const validateYouTubeUrl = (url: string) => {
             try {
 
@@ -73,7 +71,7 @@ function Trailers(props: any) {
                 showDots={true}
                 responsive={responsive}
                 infinite={true}
-                // autoPlay={true}
+                autoPlay={true}
                 transitionDuration={1500}
                 containerClass="carousel-container"
                 removeArrowOnDeviceType={["tablet", "mobile"]}

@@ -1,5 +1,8 @@
 .pokemon-section-box {
     .pokemon-card {
+        display: flex;
+        justify-content: center;
+
         margin-bottom: 10px;
 
         .ant-card-meta-title {
