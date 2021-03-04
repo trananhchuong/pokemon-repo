@@ -7,18 +7,26 @@ import Loading from '../loading/Loading';
 import _ from 'lodash';
 
 import pokemonApi from '../../api/pokemonApi';
+import ItemsSection from './ItemsSection';
+import AppUtil from '../../Utils/AppUtil';
+import itemApi from '../../api/itemApi';
 
 interface Istate {
     loading: boolean,
-    pokemonList: []
+    pokemonList: [],
+    itemList: []
 }
 
 
 function HomePage(props: any) {
 
-    const [state, setState] = useState<Istate>({
-        loading: true, pokemonList: []
-    });
+    const [state, setState] = useState<Istate>(
+        {
+            loading: true,
+            pokemonList: [],
+            itemList: []
+        }
+    );
 
     useEffect(() => {
         fetchData();
@@ -26,16 +34,23 @@ function HomePage(props: any) {
 
     const fetchData = async () => {
         try {
-
             const params = {
                 limit: 10
             };
-            const response = await pokemonApi.getListAll(params);
-            const pokemonListRes = _.get(response, 'results');
+
+            const responseData = await AppUtil.Axios.all([
+                pokemonApi.getListAll(params),
+                itemApi.getListAll(params)
+            ]);
+
+            const pokemonListRes = _.get(responseData[0], 'results');
+            const itemListRes = _.get(responseData[1], 'results');
+
             setState({
                 ...state,
                 loading: false,
-                pokemonList: pokemonListRes
+                pokemonList: pokemonListRes,
+                itemList: itemListRes
             })
 
         } catch (error) {
@@ -47,8 +62,13 @@ function HomePage(props: any) {
     const renderTrailers = () => {
         return <Trailers />;
     }
+
     const renderPokemonSection = () => {
         return <PokemonSection pokemonList={state.pokemonList} />;
+    }
+
+    const renderItemsSection = () => {
+        return <ItemsSection itemList={state.itemList}/>;
     }
 
     if (state.loading)
@@ -61,6 +81,9 @@ function HomePage(props: any) {
             </div>
             <div className="pokemon-section">
                 {renderPokemonSection()}
+            </div>
+            <div className="items-section">
+                {renderItemsSection()}
             </div>
         </div>
     );

@@ -66,8 +66,6 @@ function PokemonSection(props: any) {
         </>
     }
 
-
-
     const renderButtonSeeMore = () => {
         return (
             <div className="btn-box">
