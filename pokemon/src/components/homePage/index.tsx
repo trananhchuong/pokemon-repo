@@ -62,7 +62,6 @@ function HomePage(props: any) {
             <div className="pokemon-section">
                 {renderPokemonSection()}
             </div>
-            This is Homepage
         </div>
     );
 }
